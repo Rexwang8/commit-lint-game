@@ -1,0 +1,16 @@
+{
+  "rules": [
+    {
+      "name": "conventional-commit",
+      "pattern": "^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\\([a-zA-Z0-9._/-]+\\))?: .+",
+      "flags": [],
+      "message": "Commit must follow Conventional Commits format"
+    },
+    {
+      "name": "ticket-reference",
+      "pattern": "\\b(PROJ|BUG)-[0-9]+\\b",
+      "flags": [],
+      "message": "Commit must reference a ticket (e.g. PROJ-123)"
+    }
+  ]
+}
