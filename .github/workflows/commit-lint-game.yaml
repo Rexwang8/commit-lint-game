@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-          fetch-depth: 1
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -28,4 +28,7 @@ jobs:
         env:
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
-          git show -s --format=%B "$HEAD_SHA" | python commit-lint-game/commit-lint.py --stdin
+          git show -s --format=%B "$HEAD_SHA" | \
+            python commit-lint-game/commit-lint.py \
+              --stdin \
+              --history-ref "${HEAD_SHA}^"

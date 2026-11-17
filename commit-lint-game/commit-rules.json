@@ -72,6 +72,12 @@
       "message": "Every vowel, including Y, must be uppercase. LOWERCASE VOWELS ARE UNACCEPTABLE."
     },
     {
+      "name": "capitalization-limit",
+      "type": "capitalization_limit",
+      "max_percentage": 75,
+      "message": "No more than 75% of alphabetical characters may be uppercase. Stop shouting."
+    },
+    {
       "name": "palindrome",
       "type": "palindrome",
       "min_length": 5,
@@ -89,6 +95,12 @@
       "type": "digit_sum",
       "target": 25,
       "message": "The individual digits in your commit must add up to exactly 25."
+    },
+    {
+      "name": "unique-commit-title",
+      "type": "unique_commit_title",
+      "limit": 50,
+      "message": "This commit title has already been used in the last 50 commits. Be more original."
     }
   ]
 }
