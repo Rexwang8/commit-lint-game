@@ -116,13 +116,12 @@ def validate_rule(message, rule, previous_titles=None):
     if rule_type == "unique_commit_title":
         lines = message.splitlines()
         title = normalize_title(lines[0]) if lines else ""
-
-        previous_titles = load_previous_titles("HEAD", rule.get("limit", 50))
+    
         previous = {
             normalize_title(t)
             for t in (previous_titles or [])[:rule.get("limit", 50)]
         }
-
+    
         return title not in previous
 
     if rule_type == "capitalization_limit":
