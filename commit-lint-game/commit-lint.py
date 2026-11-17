@@ -116,12 +116,12 @@ def validate_rule(message, rule, previous_titles=None):
     if rule_type == "unique_commit_title":
         lines = message.splitlines()
         title = normalize_title(lines[0]) if lines else ""
-    
+
         previous = {
             normalize_title(t)
             for t in (previous_titles or [])[:rule.get("limit", 50)]
         }
-    
+
         return title not in previous
 
     if rule_type == "capitalization_limit":
@@ -195,13 +195,12 @@ def main():
         return 2
 
     if errors:
-        print("Commit message validation failed:\n")
-
-        for name, error_message in errors:
-            print(f"  [{name}] {error_message}")
-
+        name, error_message = errors[0]
+        print(f"::error title=Commit lint failed ({name})::{error_message}")
+        print(f"  [{name}] {error_message}")
         return 1
 
+    print("::notice title=Commit lint passed::Commit message passed validation.")
     print("Commit message passed validation.")
     return 0
 
