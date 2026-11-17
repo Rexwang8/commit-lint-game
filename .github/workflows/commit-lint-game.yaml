@@ -28,4 +28,4 @@ jobs:
         env:
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
-          git show -s --format=%B "$HEAD_SHA" | python commit_lint.py --stdin
+          git show -s --format=%B "$HEAD_SHA" | python commit-lint-game/commit-lint.py --stdin

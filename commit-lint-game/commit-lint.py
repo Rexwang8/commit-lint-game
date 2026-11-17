@@ -63,7 +63,7 @@ def main():
 
     parser.add_argument(
         "-c", "--config",
-        default="commit-rules.json",
+        default="commit-lint-game/commit-rules.json",
         help="Path to rules configuration"
     )
 
