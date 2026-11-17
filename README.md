@@ -3,6 +3,10 @@ mini project. commitlint+password game
 
 should be an action that i can stick in other people's repos for fun.
 
+Add to other people's repos:
+
+Add the .github workflow and the /commit-lint-game folder to their repo.
+
 test locally. 
 python commit-lint.py -m "feat(api): add authentication PROJ-123"
 python commit-lint.py -m "added authentication"
